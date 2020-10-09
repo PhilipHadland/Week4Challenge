@@ -19,3 +19,5 @@ The further into the build I got the more complex the code became. The calculato
 Possible improvements for future challenge.
 
 In future challenges I think I would search the documentation and online for functions that can be used to make the code simpler and have more functionality. However, I purposely didn't search for any functions in this challenge to try and work on my logic using everything that we've been taught.
+
+I would also use some CSS to make the calculator look more user friendly.
