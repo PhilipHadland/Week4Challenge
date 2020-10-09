@@ -1,0 +1,135 @@
+<html>
+<script>
+
+var firstnumber = 0;
+var secondnumber = 0;
+var operator = "";
+
+function buttonpresses(button){	
+	var screen = document.getElementById("screen");
+
+	if (firstnumber == 0){
+		if (button == 0 || button == 1 || button == 2 || button == 3 || button == 4 || button == 5 || button == 6 || button == 7 || button == 8 || button == 9){
+			if (button == 0 && screen.value == 0){
+				screen.value = "";
+			}
+			else {
+				screen.value += button;
+			}
+		}
+
+		if (button == "+/-"){
+			if (screen.value.substring(0, 1) != "-"){
+				screen.value = "-" + screen.value
+			}
+			else {
+				screen.value = screen.value.substring(1, screen.value.length - 0);
+			}
+		}
+
+		if (button == "C"){
+			screen.value = "";
+		}
+
+		if (button == "+" || button == "-" || button == "*" || button == "/"){
+			operator = button;
+			firstnumber = screen.value
+			screen.value = ""
+		}
+	}
+
+	if (firstnumber != 0){
+
+		if (button == 0 || button == 1 || button == 2 || button == 3 || button == 4 || button == 5 || button == 6 || button == 7 || button == 8 || button == 9){
+			if (button == 0 && screen.value == 0){
+				screen.value = "";
+			}
+			else {
+				screen.value += button;
+			}
+		}
+
+		if (button == "+/-"){
+			if (screen.value.substring(0, 1) != "-"){
+				screen.value = "-" + screen.value
+			}
+			else {
+				screen.value = screen.value.substring(1, screen.value.length - 0);
+			}
+		}
+
+		if (button == "C"){
+			screen.value = "";
+			firstnumber = 0;
+			operator = "";
+		}
+
+		if (button == "="){
+			secondnumber = screen.value
+			if (operator == "+"){
+				screen.value = parseInt(firstnumber) + parseInt(secondnumber);
+			}
+
+			if (operator == "-"){
+				screen.value = parseInt(firstnumber) - parseInt(secondnumber);
+			}
+
+			if (operator == "*"){
+				screen.value = parseInt(firstnumber) * parseInt(secondnumber);
+			}
+
+			if (operator == "/"){
+				screen.value = parseInt(firstnumber) / parseInt(secondnumber);
+			}
+		}
+
+
+	}
+		
+}
+
+</script>
+<table>
+	<tr>
+		<td>
+			<input type="text" id="screen" name="screen" disabled="true">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" id="seven" name="seven" value="7" onclick="buttonpresses('7')">
+			<input type="button" id="eight" name="eight" value="8" onclick="buttonpresses('8')">
+			<input type="button" id="nine" name="nine" value="9" onclick="buttonpresses('9')">
+			<input type="button" id="divide" name="divide" value="/" onclick="buttonpresses('/')">
+			<input type="button" id="plusminus" name="plusminus" value="+/-" onclick="buttonpresses('+/-')">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" id="four" name="four" value="4" onclick="buttonpresses('4')">
+			<input type="button" id="five" name="five" value="5" onclick="buttonpresses('5')">
+			<input type="button" id="six" name="six" value="6" onclick="buttonpresses('6')">
+			<input type="button" id="multiply" name="multiply" value="*" onclick="buttonpresses('*')">
+			<input type="button" id="clear" name="clear" value="C" onclick="buttonpresses('C')">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" id="one" name="one" value="1" onclick="buttonpresses('1')">
+			<input type="button" id="two" name="two" value="2" onclick="buttonpresses('2')">
+			<input type="button" id="three" name="three" value="3" onclick="buttonpresses('3')">
+			<input type="button" id="minus" name="minus" value="-" onclick="buttonpresses('-')">
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<input type="button" id="zero" name="zero" value="0" onclick="buttonpresses('0')">
+			<input type="button" id="doublezero" name="doublezero" value="00" onclick="buttonpresses('00')">
+			<input type="button" id="plus" name="plus" value="+" onclick="buttonpresses('+')">
+			<input type="button" id="equals" name="equals" value="=" onclick="buttonpresses('=')">
+
+		</td>
+	</tr>
+</table>
+
+</html>
